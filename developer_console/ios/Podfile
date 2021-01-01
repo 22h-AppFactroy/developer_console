@@ -8,6 +8,12 @@ target 'developer_console' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage'
+
+  pod 'ReactNativeAdsFacebook', :path => '../node_modules/react-native-fbads'
+
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+
   target 'developer_consoleTests' do
     inherit! :complete
     # Pods for testing
