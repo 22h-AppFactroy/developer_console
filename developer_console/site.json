@@ -1,0 +1,168 @@
+[
+    {
+        "site":"Amazon Developer Console",
+        "link":"https://developer.amazon.com",
+        "img":"https://lh3.googleusercontent.com/proxy/hLWz9eGPSLver1rsNffCbgCoEGUyx-TmZm5XoKbNvRxzjM2_r7wvscZXpaAxsgQQF_jokm9ARk2Allcy44VaRVW3yYHXrNeHY-e7h_Jwih6GlG-E1wpdYoZh8MJa_X23FT2YFKH614GkmxnWZdwAPdQxAbjmt2E"
+    },
+    {
+        "site":"App Store Connect",
+        "link":"https://appstoreconnect.apple.com",
+        "img":"https://developer.apple.com/assets/elements/icons/app-store/app-store-128X128_2x.png"
+    },
+    {
+        "site":"App Store Review Guide Line",
+        "link":"https://developer.apple.com/kr/app-store/review/guidelines/",
+        "img":"https://developer.apple.com/assets/elements/icons/asc-outline/asc-outline-128x128_2x.png"
+    },
+    {
+        "site":"Epic Games Store",
+        "link":"https://www.epicgames.com/store",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_logo.svg/882px-Epic_Games_logo.svg.png"
+    },
+    {
+        "site":"GitHub",
+        "link":"https://github.com/",
+        "img":"https://1000logos.net/wp-content/uploads/2018/11/GitHub-logo.png"
+    },
+    {
+        "site":"GitKraken",
+        "link":"https://www.gitkraken.com/",
+        "img":"https://www.gitkraken.com/downloads/brand-assets/gitkraken-logo-dark-sq.png"
+    },
+    {
+        "site":"GitLab",
+        "link":"https://gitlab.com/gitlab-org/gitlab",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/GitLab_Logo.svg/1200px-GitLab_Logo.svg.png"
+    },
+    {
+        "site":"Bitbucket",
+        "link":"https://bitbucket.org/",
+        "img":"https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/44_Bitbucket_logo_logos-512.png"
+    },
+    {
+        "site":"Slack",
+        "link":"https://slack.com/signin#/signin",
+        "img":"https://image.flaticon.com/icons/png/512/2111/2111615.png"
+    },
+    {
+        "site":"Trello",
+        "link":"https://trello.com/",
+        "img":"https://user-images.githubusercontent.com/13432607/29981988-82cec158-8f58-11e7-9f26-473079c2a9b1.png"
+    },
+    {
+        "site":"Jira",
+        "link":"https://www.atlassian.com/ko/software/jira",
+        "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3mPYVDehq6Y1uj1Bz-Ha6DU457FBBtHkaRA&usqp=CAU"
+    },
+    {
+        "site":"npm",
+        "link":"https://www.npmjs.com/",
+        "img":"https://authy.com/wp-content/uploads/npm-logo.png"
+    },
+    {
+        "site":"Facebook Developers",
+        "link":"https://developers.facebook.com/",
+        "img":"https://i.pinimg.com/originals/d4/91/c2/d491c232fc9c3debe18aca2a13d3ccbe.png"
+    },
+    {
+        "site":"Gmail",
+        "link":"https://mail.google.com",
+        "img":"https://logos-world.net/wp-content/uploads/2020/11/Gmail-Logo.png"
+    },
+    {
+        "site":"Google Play",
+        "link":"https://googleplay.com/",
+        "img":"https://cdn.pixabay.com/photo/2016/08/31/00/49/google-1632434_1280.png"
+    },
+    {
+        "site":"Google Developers",
+        "link":"https://developers.google.com/",
+        "img":"https://developers.google.com/site-assets/images/home/google_developers_logo.png"
+    },
+    {
+        "site":"Google Cloud Platform Console",
+        "link":"https://console.cloud.google.com/",
+        "img":"https://www.gend.co/hs-fs/hubfs/gcp-logo-cloud.png?width=730&name=gcp-logo-cloud.png"
+    },
+    {
+        "site":"Google Play Policy",
+        "link":"https://play.google.com/about/developer-content-policy/",
+        "img":"https://www.seekpng.com/png/detail/7-74294_google-play-play-store-logo-white.png"
+    },
+    {
+        "site":"Google Firebase Console",
+        "link":"https://console.firebase.google.com/",
+        "img":"https://img.icons8.com/color/452/firebase.png"
+    },
+    {
+        "site":"Google Adsense",
+        "link":"https://www.google.com/adsense/",
+        "img":"https://i.pinimg.com/originals/12/a9/cd/12a9cd104cc6aaa6ae5128119cbcc7ea.png"
+    },
+    {
+        "site":"Google AdMob",
+        "link":"https://admob.google.com/",
+        "img":"https://developers.google.cn/ads/images/logo_admob_192px.svg"
+    },
+    {
+        "site":"Google Ads",
+        "link":"https://ads.google.com/home/",
+        "img":"https://1000logos.net/wp-content/uploads/2020/05/Google-AdWords-Logo.png"
+    },
+    {
+        "site":"Google Analytics",
+        "link":"https://analytics.google.com/",
+        "img":"https://play-lh.googleusercontent.com/Ac7UebUnwu5-zLt4gN1HlW5KgZhquPJbNhQk2chzdrMjoTPxKJQkxBL5FGAJgp3lCw"
+    },  
+    {
+        "site":"Paypal Developers",
+        "link":"https://developer.paypal.com/",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/PayPal_Logo_Icon_2014.svg/1200px-PayPal_Logo_Icon_2014.svg.png"
+    },
+    {
+        "site":"Samsung Galaxy Sellers",
+        "link":"https://seller.samsungapps.com/",
+        "img":"https://img.utdstc.com/icon/56e/25c/56e25c346e7035b8163555a0e818a3926b9146ded0e6a82298a14b44161e300a:200"
+    },
+    {
+        "site":"StackoverFlow",
+        "link":"https://stackoverflow.com/",
+        "img":"https://cdn4.iconfinder.com/data/icons/socialcones/508/StackOverflow-512.png"
+    },
+    {
+        "site":"Quora",
+        "link":"https://www.quora.com/",
+        "img":"https://png.pngtree.com/png-clipart/20190626/ourlarge/pngtree-quora-icon-png-and-psd-file-download-png-image_1514277.jpg"
+    },
+    {
+        "site":"Unity Docs",
+        "link":"https://docs.unity3d.com/Manual/UnityAnalyticsDashboard.html",
+        "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqMqb9RGLN6Nxkd2Su5V5YAuhRoX7QksBOQ&usqp=CAU"
+    },
+    {
+        "site":"Kakao Developers",
+        "link":"https://developers.kakao.com/",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/f/f2/Kakao_logo.jpg"
+    },
+    {
+        "site":"Naver Developers",
+        "link":"https://developers.naver.com/",
+        "img":"https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1504499304/in36bktetqoapibgeabo.png"
+    },
+    {
+        "site":"Kaggle",
+        "link":"https://www.kaggle.com",
+        "img":"https://storage.googleapis.com/kaggle-organizations/975/thumbnail.png%3Fr=497"
+    },
+    {
+        "site":"Devstu",
+        "link":"https://devstu.co.kr",
+        "img":"https://tumblbug-pci.imgix.net/d70ac90feb2c2cae837c54c153027f303f24057a/c0f10bb785cbb4dd31fc5f02606f9910d13b0ac0/0457def176a61f3f515d119cc676a39e1004088c/43265a07-260f-47a9-9cdf-5520c9cc8afe.png?ixlib=rb-1.1.0&w=1240&h=930&auto=format%2Ccompress&lossless=true&fit=crop&s=22544e982b6a6bc5e9ca3355e879d518"
+    },
+    {
+        "site":"OKKY",
+        "link":"https://okky.kr",
+        "img":"https://okky.kr/assets/images/okky_logo_fb.png"
+    },
+    
+]
