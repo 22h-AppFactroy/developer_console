@@ -17,7 +17,7 @@ class AdComponent extends React.Component {
       <View>
         <AdChoicesView style={{left: 0, top: 0}} />
         {/* <AdIconView style={{width: '100%', height: 10}} /> */}
-        <MediaView style={{width: '100%', height: 100}} />
+        <MediaView style={{width: '100%', height: 150}} />
         <TriggerableView>
           <Text>{this.props.nativeAd.description}</Text>
         </TriggerableView>

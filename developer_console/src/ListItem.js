@@ -23,6 +23,7 @@ const ListItem = ({it, handleStar}) => {
     off: 'rgb(220,220,220)',
   };
   const [state, setState] = useState({...it});
+  const [imgError, setImgError] = useState(false);
 
   const handleClickItem = async () => {
     setState({...state, stared: !state?.stared});
@@ -35,7 +36,13 @@ const ListItem = ({it, handleStar}) => {
           <TouchableOpacity
             style={styles.itemInner}
             onPress={() => Linking.openURL(`${state.link}`)}>
-            <Image style={styles.itemImg} source={{uri: `${state.img}`}} />
+            <Image
+              onError={() => setImgError(true)}
+              style={styles.itemImg}
+              source={
+                imgError ? require('./default.png') : {uri: `${state.img}`}
+              }
+            />
             <Text style={styles.itemText}>{state.site}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleClickItem()}>

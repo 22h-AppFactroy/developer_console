@@ -81,7 +81,7 @@ const StarListScene = () => {
     <SafeAreaView style={styles.container}>
       {data ? (
         <ScrollView style={styles.scrollView}>
-          <Text style={styles.title}>Stared Consoles</Text>
+          <Text style={styles.title}>Starred Consoles</Text>
           <Text style={styles.label}>
             Click the star to remove the item from this list
           </Text>
