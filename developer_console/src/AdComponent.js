@@ -14,12 +14,42 @@ class AdComponent extends React.Component {
   }
   render() {
     return (
-      <View>
-        <AdChoicesView style={{left: 0, top: 0}} />
-        {/* <AdIconView style={{width: '100%', height: 10}} /> */}
-        <MediaView style={{width: '100%', height: 150}} />
+      <View
+        style={{
+          marginTop: 10,
+          marginBottom: 10,
+          left: 0,
+          right: 0,
+          backgroundColor: 'rgb(240,240,240)',
+        }}>
+        <View style={{flexDirection: 'row'}}>
+          <AdChoicesView style={{width: 30, height: 30, left: 0, top: 0}} />
+          <Text style={{marginLeft: 10}}>
+            {this.props.nativeAd.translation}
+          </Text>
+        </View>
+        <MediaView style={{width: '100%', height: 200}} />
+
+        <View style={{flexDirection: 'row'}}>
+          <View>
+            <AdIconView style={{width: 25, height: 25, left: 0}} />
+          </View>
+          <View style={{flexDirection: 'column'}}>
+            <Text style={{marginLeft: 10, lineHeight: 25}}>
+              {this.props.nativeAd.headline}
+            </Text>
+            <Text style={{marginLeft: 10, lineHeight: 25}}>
+              {this.props.nativeAd.socialContext}
+            </Text>
+          </View>
+        </View>
+
+        {/* 광고주 */}
+        <Text>{this.props.nativeAd.advertiserName}</Text>
+
         <TriggerableView>
-          <Text>{this.props.nativeAd.description}</Text>
+          {/*  액션 텍스트 */}
+          <Text>{this.props.nativeAd.callToActionText}</Text>
         </TriggerableView>
       </View>
     );

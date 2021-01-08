@@ -150,11 +150,6 @@
         "img":"https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1504499304/in36bktetqoapibgeabo.png"
     },
     {
-        "site":"Kaggle",
-        "link":"https://www.kaggle.com",
-        "img":"https://storage.googleapis.com/kaggle-organizations/975/thumbnail.png%3Fr=497"
-    },
-    {
         "site":"Devstu",
         "link":"https://devstu.co.kr",
         "img":"https://tumblbug-pci.imgix.net/d70ac90feb2c2cae837c54c153027f303f24057a/c0f10bb785cbb4dd31fc5f02606f9910d13b0ac0/0457def176a61f3f515d119cc676a39e1004088c/43265a07-260f-47a9-9cdf-5520c9cc8afe.png?ixlib=rb-1.1.0&w=1240&h=930&auto=format%2Ccompress&lossless=true&fit=crop&s=22544e982b6a6bc5e9ca3355e879d518"
@@ -163,5 +158,10 @@
         "site":"OKKY",
         "link":"https://okky.kr",
         "img":"https://okky.kr/assets/images/okky_logo_fb.png"
-    }
+    },
+    {
+        "site":"Kaggle",
+        "link":"https://www.kaggle.com",
+        "img":"https://storage.googleapis.com/kaggle-organizations/975/thumbnail.png%3Fr=497"
+    },
 ]

@@ -133,8 +133,8 @@ android {
         applicationId "com.developer_console"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "2.0"
+        versionCode 4
+        versionName "4.0"
         multiDexEnabled true // << 추가
     }
     splits {

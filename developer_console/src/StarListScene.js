@@ -12,14 +12,12 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ListContext} from './ListStore';
-import {NativeAdsManager} from 'react-native-fbads';
+import {BannerView} from 'react-native-fbads';
 
 import ListItem from './ListItem';
 import Icon from 'react-native-vector-icons/AntDesign';
 import AdComponent from './AdComponent';
 const StarListScene = () => {
-  const adsManager = new NativeAdsManager('1595683040620066_1595683417286695');
-
   const {siteList} = useContext(ListContext);
 
   const [data, setData] = useState([]);
@@ -81,18 +79,29 @@ const StarListScene = () => {
     <SafeAreaView style={styles.container}>
       {data ? (
         <ScrollView style={styles.scrollView}>
-          <Text style={styles.title}>Starred Consoles</Text>
-          <Text style={styles.label}>
-            Click the star to remove the item from this list
-          </Text>
-          <AdComponent adsManager={adsManager} />
-
-          {data?.map((it) => (
-            <ListItem handleStar={handleStar} key={it.site} it={it} />
-          ))}
-          <TouchableOpacity onPress={() => getData()} style={styles.refreshBox}>
-            <Icon style={{textAlign: 'center'}} name="reload1" size={30} />
-          </TouchableOpacity>
+          <View style={{marginHorizontal: 20}}>
+            <Text style={styles.title}>Starred Consoles</Text>
+            <Text style={styles.label}>
+              Click the star to remove the item from this list
+            </Text>
+          </View>
+          <BannerView
+            placementId="1595683040620066_1596880140500356"
+            type="large"
+            onPress={() => console.log('click')}
+            onLoad={() => console.log('loaded')}
+            onError={(err) => console.log('error')}
+          />
+          <View style={{marginHorizontal: 20}}>
+            {data?.map((it) => (
+              <ListItem handleStar={handleStar} key={it.site} it={it} />
+            ))}
+            <TouchableOpacity
+              onPress={() => getData()}
+              style={styles.refreshBox}>
+              <Icon style={{textAlign: 'center'}} name="reload1" size={30} />
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       ) : (
         <Text>Loading Now</Text>
@@ -109,7 +118,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
 
     flex: 1,
-    marginHorizontal: 20,
     marginBottom: 70,
   },
   refreshBox: {

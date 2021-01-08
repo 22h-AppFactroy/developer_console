@@ -7,7 +7,7 @@
  */
 
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, StyleSheet, ActivityIndicator} from 'react-native';
 import {ListProvider} from './ListStore';
 import axios from 'axios';
 
@@ -30,17 +30,19 @@ const App = () => {
   }, []);
   useEffect(() => {
     if (data) {
-      console.log(data.length);
       var siteList = data?.map((it) => it.site);
-      console.log(siteList);
-
-      console.log('DATA FIND');
       SplashScreen.hide();
     }
   }, [data]);
   return (
     <ListProvider init={data}>
-      {data ? <AppRouter /> : <Text>Loading Now</Text>}
+      {data ? (
+        <AppRouter />
+      ) : (
+        <SafeAreaView>
+          <ActivityIndicator />
+        </SafeAreaView>
+      )}
     </ListProvider>
   );
 };

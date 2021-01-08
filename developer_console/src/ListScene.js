@@ -11,15 +11,14 @@ import {
   StatusBar,
   TextInput,
 } from 'react-native';
+import {BannerView} from 'react-native-fbads';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ListContext} from './ListStore';
-import {NativeAdsManager} from 'react-native-fbads';
 
 import ListItem from './ListItem';
 import AdComponent from './AdComponent';
 const ListScene = () => {
-  const adsManager = new NativeAdsManager('1595683040620066_1595683417286695');
-
   const {siteList} = useContext(ListContext);
   const [data, setData] = useState([]);
   const [searchText, setSearchText] = useState();
@@ -100,25 +99,35 @@ const ListScene = () => {
 
       {data ? (
         <ScrollView style={styles.scrollView}>
-          <Text style={styles.title}>All Consoles</Text>
-          <Text style={styles.label}>Click the star to save the item.</Text>
-          <AdComponent adsManager={adsManager} />
+          <View style={{marginHorizontal: 20}}>
+            <Text style={styles.title}>All Consoles</Text>
+            <Text style={styles.label}>Click the star to save the item.</Text>
+          </View>
+          <BannerView
+            placementId="1595683040620066_1596870253834678"
+            type="large"
+            onPress={() => console.log('click')}
+            onLoad={() => console.log('loaded')}
+            onError={(err) => console.log('error')}
+          />
+          <View style={{marginHorizontal: 20}}>
+            {filterItems()
+              // ?.filter((it) =>
+              //   it.site.toLowerCase().indexOf(searchText?.toLowerCase() > -1),
+              // )
+              ?.filter((it) => it.stared)
+              ?.map((it) => (
+                <ListItem handleStar={handleStar} key={it.site} it={it} />
+              ))}
+            {/* <AdComponent adsManager={adsManager} /> */}
 
-          {filterItems()
-            // ?.filter((it) =>
-            //   it.site.toLowerCase().indexOf(searchText?.toLowerCase() > -1),
-            // )
-            ?.filter((it) => it.stared)
-            ?.map((it) => (
-              <ListItem handleStar={handleStar} key={it.site} it={it} />
-            ))}
-
-          {filterItems()
-            // ?.filter((it) => it.site.indexOf(searchText))
-            ?.filter((it) => !it.stared)
-            ?.map((it) => (
-              <ListItem handleStar={handleStar} key={it.site} it={it} />
-            ))}
+            {filterItems()
+              // ?.filter((it) => it.site.indexOf(searchText))
+              ?.filter((it) => !it.stared)
+              ?.map((it) => (
+                <ListItem handleStar={handleStar} key={it.site} it={it} />
+              ))}
+          </View>
         </ScrollView>
       ) : (
         <Text>Loading Now</Text>
@@ -134,7 +143,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     paddingTop: 20,
-    marginHorizontal: 20,
+    // marginHorizontal: 20,
     marginBottom: 70,
   },
   searchBox: {

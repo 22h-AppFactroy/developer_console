@@ -9,6 +9,9 @@ import {
   Image,
   TouchableOpacity,
   StatusBar,
+  BackHandler,
+  ToastAndroid,
+  Alert,
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -104,6 +107,33 @@ const BottomItem = ({activeTabIndex, idx, item}) => {
 const BottomMenu = (props) => {
   const {state} = props.navigation;
   const activeTabIndex = state.index;
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      'Close App',
+      'are you sure to close app?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => {
+            BackHandler.exitApp();
+          },
+        },
+      ],
+      {cancelable: false},
+    );
+
+  const handleBackButton = () => {
+    createTwoButtonAlert();
+    //  // 앱 종료
+  };
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', handleBackButton);
+  }, []);
   return (
     // <View >
     //   {menu?.map((it) => (

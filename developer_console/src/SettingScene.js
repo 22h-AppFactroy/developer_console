@@ -38,7 +38,7 @@ const SettingScene = () => {
           value={'22Hours'}
           link={'https://github.com/22hours'}
         />
-        <SettingItem title={'Ver'} value={'1.0'} />
+        <SettingItem title={'Ver'} value={'4.0'} />
       </View>
     </SafeAreaView>
   );
