@@ -75,6 +75,11 @@
         "img":"https://cdn.pixabay.com/photo/2016/08/31/00/49/google-1632434_1280.png"
     },
     {
+        "site":"Google Play Console",
+        "link":"https://play.google.com/apps/publish/",
+        "img":"https://developer.android.com/distribute/images/cards/newsletter-2020-Q2.png"
+    },
+    {
         "site":"Google Developers",
         "link":"https://developers.google.com/",
         "img":"https://developers.google.com/site-assets/images/home/google_developers_logo.png"
