@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Router, Scene, Tabs} from 'react-native-router-flux';
-import ListScene from './ListScene';
 import {SafeAreaView} from 'react-native';
 import BottomMenu from './BottomMenu';
-import StarListScene from './StarListScene';
-import SettingScene from './SettingScene';
+
+import HomeScene from './scene/HomeScene';
+import RecentlyVisitScene from './scene/RecentlyVisitScene';
+import StarredScene from './scene/StarredScene';
+import SearchScene from './scene/SearchScene';
 
 const AppRouter = () => {
   return (
@@ -14,25 +16,30 @@ const AppRouter = () => {
           <Scene
             initial="true"
             key="HomeTab"
-            component={ListScene}
+            component={HomeScene}
             title="Home"
             hideNavBar={true}
           />
           <Scene
+            key="RecentlyTab"
+            component={RecentlyVisitScene}
+            title="Recently"
+            hideNavBar={true}
+          />
+          <Scene
             key="StarTab"
-            component={StarListScene}
+            component={StarredScene}
             title="Star"
             hideNavBar={true}
           />
           <Scene
-            key="SettingTab"
-            component={SettingScene}
-            title="Setting"
+            key="SearchTab"
+            component={SearchScene}
+            title="Search"
             hideNavBar={true}
           />
         </Tabs>
       </Router>
-      {/* <BottomMenu /> */}
     </SafeAreaView>
   );
 };

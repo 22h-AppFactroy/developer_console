@@ -40,6 +40,24 @@ const getIcon = (select, type) => {
           color={iconColor.off}
         />
       );
+
+    case 'Recently': {
+      return select ? (
+        <Icon
+          style={styles.onClickIcon}
+          name="clockcircleo"
+          size={iconSize}
+          color={iconColor.on}
+        />
+      ) : (
+        <Icon
+          style={styles.unClickIcon}
+          name="clockcircleo"
+          size={iconSize}
+          color={iconColor.off}
+        />
+      );
+    }
     case 'Star':
       return select ? (
         <Icon
@@ -56,6 +74,24 @@ const getIcon = (select, type) => {
           color={iconColor.off}
         />
       );
+
+    case 'Search': {
+      return select ? (
+        <Icon
+          name="search1"
+          style={styles.unClickIcon}
+          size={iconSize}
+          color={iconColor.on}
+        />
+      ) : (
+        <Icon
+          name="search1"
+          style={styles.unClickIcon}
+          size={iconSize}
+          color={iconColor.off}
+        />
+      );
+    }
     case 'Setting':
       return select ? (
         <Icon
@@ -97,7 +133,8 @@ const BottomItem = ({activeTabIndex, idx, item}) => {
         justifyContent: 'center',
       }}>
       {getIcon(flag, itemText)}
-      <Text style={{color: flag ? textColor?.on : textColor?.off}}>
+      <Text
+        style={{color: flag ? textColor?.on : textColor?.off, fontSize: 12}}>
         {itemText}
       </Text>
     </TouchableOpacity>
@@ -135,14 +172,10 @@ const BottomMenu = (props) => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButton);
   }, []);
   return (
-    // <View >
-    //   {menu?.map((it) => (
-    //     <BottomItem key={it.item} item={it.item} />
-    //   ))}
-    // </View>
     <View style={styles.bottomNavigation}>
       {state.routes.map((element, idx) => (
         <TouchableOpacity
+          style={styles.nav_item}
           key={element.key}
           onPress={() => Actions[element.key]()}>
           <BottomItem
@@ -180,10 +213,18 @@ const styles = StyleSheet.create({
 
     elevation: 20,
   },
+  nav_item: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexGrow: 1,
+  },
   onClickIcon: {
+    fontSize: 14,
     textAlign: 'center',
   },
   unClickIcon: {
+    fontSize: 14,
     textAlign: 'center',
   },
 });
