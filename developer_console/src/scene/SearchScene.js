@@ -1,15 +1,53 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, SafeAreaView, ScrollView, Text, View} from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
+import {useAd} from '../store/AdStore';
+import AdStripeItem from '../component/AdStripeItem';
+import AddItemModal from '../component/AddItemModal';
+
+const SectionHead = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  return (
+    <>
+      <View style={sectionStyle.section__head}>
+        <Text adjustsFontSizeToFit style={sectionStyle.section__head_typo}>
+          ALL
+        </Text>
+        <TouchableOpacity
+          onPress={() => {
+            setIsModalVisible(true);
+          }}>
+          <Text
+            adjustsFontSizeToFit
+            style={sectionStyle.section__viewmore_typo}>
+            + Add new item
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <AddItemModal
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
+    </>
+  );
+};
 
 const SearchScene = () => {
   const store = useStore();
 
   const [search, setSearch] = useState('');
   const [searchResultList, setSearchResultList] = useState(store.appData);
+  const {recentlyAdManager} = useAd();
 
   useEffect(() => {
     if (search === '') setSearchResultList(store.appData);
@@ -23,7 +61,7 @@ const SearchScene = () => {
     <>
       {/* All List */}
       <View style={sectionStyle.section}>
-        <Text style={sectionStyle.section__head_typo}>All</Text>
+        <SectionHead />
         <View style={sectionStyle.section__search}>
           <TextInput
             value={search}
@@ -32,6 +70,12 @@ const SearchScene = () => {
             placeholder={'search...'}
           />
         </View>
+        <AdStripeItem
+          adsManager={recentlyAdManager}
+          onAdLoaded={(ad) => {
+            console.log('LOAD END ', {ad});
+          }}
+        />
         <View style={sectionStyle.section_vertical_item_list}>
           {searchResultList.map((it, idx) => (
             <StripeItem

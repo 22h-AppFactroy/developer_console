@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect, useRef} from 'react';
-import {Linking} from 'react-native';
+import {Alert, Linking} from 'react-native';
 import StorageController from '../lib/storage';
 
 // CONTEXT
@@ -61,6 +61,31 @@ export const AppProvider = ({children}) => {
     setAppData(newAppData);
   };
 
+  const actionAddItem = (item, onSuccess, onFail) => {
+    // Check duplicate
+    const matchIdx = appData.findIndex((it) => it.link === item.site);
+    if (matchIdx !== -1) {
+      if (onFail) {
+        onFail();
+      }
+      return false;
+    }
+
+    // Insert Item
+    var newAppData = appData.slice();
+    newAppData.push({
+      site: item.name,
+      link: item.site,
+      img: item.img,
+    });
+
+    if (onSuccess) {
+      onSuccess();
+    }
+
+    setAppData(newAppData);
+  };
+
   // SELECTORS
   const getStarredList = () => {
     return appData.filter((it) => it.stared);
@@ -98,6 +123,7 @@ export const AppProvider = ({children}) => {
     appData,
     actionStar,
     actionVisit,
+    actionAddItem,
     getStarredList,
     getRecentlyVisitedList,
   };

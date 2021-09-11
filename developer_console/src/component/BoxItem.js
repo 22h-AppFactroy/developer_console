@@ -5,7 +5,6 @@ import withSiteItem from '../hoc/withSiteItem';
 import {timeSince} from '../lib/util';
 
 const BoxItem = (props) => {
-  console.log(props);
   return (
     <View style={[style.container, props.extraStyle]}>
       <View style={style.head_bar}>
@@ -19,7 +18,9 @@ const BoxItem = (props) => {
             style={style.item_image}
             source={
               props.imgError
-                ? require('./../default.png')
+                ? {
+                    uri: props.replaceImg,
+                  }
                 : {uri: `${props.img}`}
             }
           />

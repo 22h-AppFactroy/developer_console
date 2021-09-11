@@ -16,7 +16,11 @@ const StripeItem = (props) => {
           onError={() => props.setImgError(true)}
           style={style.item_image}
           source={
-            props.imgError ? require('./../default.png') : {uri: `${props.img}`}
+            props.imgError
+              ? {
+                  uri: props.replaceImg,
+                }
+              : {uri: `${props.img}`}
           }
         />
         <View>

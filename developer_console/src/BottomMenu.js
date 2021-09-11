@@ -1,21 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  Linking,
-  Image,
   TouchableOpacity,
-  StatusBar,
   BackHandler,
-  ToastAndroid,
   Alert,
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/AntDesign';
-const menu = [{item: 'Home'}, {item: 'Star'}, {item: 'Setting'}];
 
 const getIcon = (select, type) => {
   const iconSize = 20;
@@ -172,21 +165,23 @@ const BottomMenu = (props) => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButton);
   }, []);
   return (
-    <View style={styles.bottomNavigation}>
-      {state.routes.map((element, idx) => (
-        <TouchableOpacity
-          style={styles.nav_item}
-          key={element.key}
-          onPress={() => Actions[element.key]()}>
-          <BottomItem
-            activeTabIndex={activeTabIndex}
-            idx={idx}
+    <>
+      <View style={styles.bottomNavigation}>
+        {state.routes.map((element, idx) => (
+          <TouchableOpacity
+            style={styles.nav_item}
             key={element.key}
-            item={element.key}
-          />
-        </TouchableOpacity>
-      ))}
-    </View>
+            onPress={() => Actions[element.key]()}>
+            <BottomItem
+              activeTabIndex={activeTabIndex}
+              idx={idx}
+              key={element.key}
+              item={element.key}
+            />
+          </TouchableOpacity>
+        ))}
+      </View>
+    </>
   );
 };
 

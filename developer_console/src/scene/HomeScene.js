@@ -7,20 +7,21 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import {BannerView} from 'react-native-fbads';
 import {Actions} from 'react-native-router-flux';
-import AdComponent from '../AdComponent';
 import BoxItem from '../component/BoxItem';
 import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
-
 import withLayout from './../hoc/withLayout';
+import HomeNativeAd from '../adComponent/HomeNativeAd';
+import {useAd} from '../store/AdStore';
 
 const Home = () => {
   const store = useStore();
 
   const recentlyVisitedList = store.getRecentlyVisitedList().slice(0, 5);
   const starredList = store.getStarredList().slice(0, 5);
+
+  const {homeAdManager} = useAd();
 
   return (
     <>
@@ -52,7 +53,6 @@ const Home = () => {
           ))}
         </ScrollView>
       </View>
-
       {/* Star List */}
       {starredList.length >= 1 && (
         <View style={sectionStyle.section}>
@@ -88,7 +88,17 @@ const Home = () => {
           </ScrollView>
         </View>
       )}
-
+      {/* Ad */}
+      <View style={[sectionStyle.section]}>
+        <View style={sectionStyle.section__head}>
+          <Text adjustsFontSizeToFit style={sectionStyle.section__head_typo}>
+            Ad
+          </Text>
+        </View>
+        <View style={sectionStyle.section_ad_box}>
+          <HomeNativeAd adsManager={homeAdManager} onAdLoaded={(ad) => {}} />
+        </View>
+      </View>
       {/* <BannerView
         placementId="1595683040620066_1596870253834678"
         type="large"
@@ -96,7 +106,6 @@ const Home = () => {
         onLoad={() => console.log('loaded')}
         onError={(err) => console.log('error')}
       /> */}
-
       {/* All List */}
       <View style={sectionStyle.section}>
         <View style={sectionStyle.section__head}>
@@ -157,6 +166,9 @@ const sectionStyle = StyleSheet.create({
   },
   section_vertical_item_list: {
     paddingVertical: 20,
+  },
+  section_ad_box: {
+    minHeight: 250,
   },
 });
 

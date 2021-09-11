@@ -8,20 +8,16 @@ import {
 } from 'react-native-fbads';
 import {View, Text} from 'react-native';
 class AdComponent extends React.Component {
+  componentDidMount() {
+    console.log(this.props);
+  }
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.nativeAd !== nextProps.nativeAd) return true;
     else return false;
   }
   render() {
     return (
-      <View
-        style={{
-          marginTop: 10,
-          marginBottom: 10,
-          left: 0,
-          right: 0,
-          backgroundColor: 'rgb(240,240,240)',
-        }}>
+      <View>
         <View style={{flexDirection: 'row'}}>
           <AdChoicesView style={{width: 30, height: 30, left: 0, top: 0}} />
           <Text style={{marginLeft: 10}}>

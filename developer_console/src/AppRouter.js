@@ -4,9 +4,9 @@ import {SafeAreaView} from 'react-native';
 import BottomMenu from './BottomMenu';
 
 import HomeScene from './scene/HomeScene';
-import RecentlyVisitScene from './scene/RecentlyVisitScene';
 import StarredScene from './scene/StarredScene';
 import SearchScene from './scene/SearchScene';
+import RecentlyVisitScene from './scene/RecentlyVisitScene';
 
 const AppRouter = () => {
   return (
@@ -14,11 +14,11 @@ const AppRouter = () => {
       <Router>
         <Tabs key="tabBar" tabBarComponent={BottomMenu} hideNavBar={true}>
           <Scene
-            initial="true"
             key="HomeTab"
             component={HomeScene}
             title="Home"
             hideNavBar={true}
+            initial="true"
           />
           <Scene
             key="RecentlyTab"

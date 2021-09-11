@@ -12,7 +12,9 @@ const withSiteItem = (WrappedComponent) => {
       on: '#58CCED',
       off: 'rgb(220,220,220)',
     };
-
+    const replaceImg = `https://icons.duckduckgo.com/ip2/${
+      props.link.split('//')[1].split('/')[0]
+    }.ico`;
     const handleClickStar = () => {
       store.actionStar(props.link);
     };
@@ -24,6 +26,7 @@ const withSiteItem = (WrappedComponent) => {
     return (
       <WrappedComponent
         {...props}
+        replaceImg={replaceImg}
         imgError={imgError}
         setImgError={setImgError}
         iconSize={iconSize}
