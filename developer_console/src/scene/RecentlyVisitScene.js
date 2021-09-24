@@ -3,25 +3,18 @@ import {StyleSheet, Text, View} from 'react-native';
 import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
-import AdStripeItem from '../component/AdStripeItem';
 import {useAd} from '../store/AdStore';
 
 const RecentlyVisitScene = () => {
   const store = useStore();
   const recentlyVisitedList = store.getRecentlyVisitedList();
 
-  const {recentlyAdManager} = useAd();
   return (
     <>
       {/* All List */}
       <View style={sectionStyle.section}>
         <Text style={sectionStyle.section__head_typo}>Recently Visited</Text>
-        <AdStripeItem
-          adsManager={recentlyAdManager}
-          onAdLoaded={(ad) => {
-            console.log('LOAD END ', {ad});
-          }}
-        />
+
         <View style={sectionStyle.section_vertical_item_list}>
           {recentlyVisitedList.map((it, idx) => (
             <StripeItem

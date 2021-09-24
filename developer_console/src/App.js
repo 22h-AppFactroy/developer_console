@@ -10,11 +10,11 @@ const App = () => {
     SplashScreen.hide();
   }, []);
   return (
-    <AppProvider>
-      <AdProvider>
+    <AdProvider>
+      <AppProvider>
         <AppRouter />
-      </AdProvider>
-    </AppProvider>
+      </AppProvider>
+    </AdProvider>
   );
 };
 

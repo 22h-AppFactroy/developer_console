@@ -11,10 +11,15 @@
       android:allowBackup="false"
         android:largeHeap="true"
       android:theme="@style/AppTheme">
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <provider android:authorities="com.facebook.app.FacebookContentProvider1595683040620066_1595683417286695"
-            android:name="com.facebook.FacebookContentProvider"
-            android:exported="true" />
+<!--        ADMOB CONFIG-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8356725717508400~8771533277"/>
+<!--        FACEBOOK AUDIENCE NETWORK CONFIG-->
+<!--        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>-->
+<!--        <provider android:authorities="com.facebook.app.FacebookContentProvider1595683040620066_1595683417286695"-->
+<!--            android:name="com.facebook.FacebookContentProvider"-->
+<!--            android:exported="true" />-->
         <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

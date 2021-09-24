@@ -12,7 +12,6 @@ import BoxItem from '../component/BoxItem';
 import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
-import HomeNativeAd from '../adComponent/HomeNativeAd';
 import {useAd} from '../store/AdStore';
 
 const Home = () => {
@@ -95,9 +94,7 @@ const Home = () => {
             Ad
           </Text>
         </View>
-        <View style={sectionStyle.section_ad_box}>
-          <HomeNativeAd adsManager={homeAdManager} onAdLoaded={(ad) => {}} />
-        </View>
+        <View style={sectionStyle.section_ad_box}></View>
       </View>
       {/* <BannerView
         placementId="1595683040620066_1596870253834678"

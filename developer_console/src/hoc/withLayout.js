@@ -1,20 +1,20 @@
 import React, {Component, useState, useEffect} from 'react';
 import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
-import {BannerView} from 'react-native-fbads';
+import {BannerAd, BannerAdSize, TestIds} from '@react-native-firebase/admob';
 import AdPlacement from '../lib/ad';
 
 const withLayout = (WrappedComponent) => {
   return (props) => {
     const [isBannerReady, setIsBannerReady] = useState(false);
+
     return (
       <SafeAreaView style={style.container}>
-        <BannerView
-          placementId={AdPlacement.GLOBAL_BANNER_AD}
-          type="standard"
-          style={isBannerReady ? style.show_banner : style.hide_banner}
-          onPress={() => {}}
-          onLoad={() => setIsBannerReady(true)}
-          onError={(err) => setIsBannerReady(false)}
+        <BannerAd
+          unitId={AdPlacement.GLOBAL_BANNER_AD}
+          size={BannerAdSize.SMART_BANNER}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: true,
+          }}
         />
         <ScrollView
           style={style.scroll_container}

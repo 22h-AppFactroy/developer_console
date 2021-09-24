@@ -10,8 +10,6 @@ import {
 import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
-import {useAd} from '../store/AdStore';
-import AdStripeItem from '../component/AdStripeItem';
 import AddItemModal from '../component/AddItemModal';
 
 const SectionHead = () => {
@@ -47,7 +45,6 @@ const SearchScene = () => {
 
   const [search, setSearch] = useState('');
   const [searchResultList, setSearchResultList] = useState(store.appData);
-  const {recentlyAdManager} = useAd();
 
   useEffect(() => {
     if (search === '') setSearchResultList(store.appData);
@@ -70,12 +67,7 @@ const SearchScene = () => {
             placeholder={'search...'}
           />
         </View>
-        <AdStripeItem
-          adsManager={recentlyAdManager}
-          onAdLoaded={(ad) => {
-            console.log('LOAD END ', {ad});
-          }}
-        />
+
         <View style={sectionStyle.section_vertical_item_list}>
           {searchResultList.map((it, idx) => (
             <StripeItem
