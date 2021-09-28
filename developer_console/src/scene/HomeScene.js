@@ -13,6 +13,9 @@ import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
 import {useAd} from '../store/AdStore';
+import AdView from '../adComponent/AdView';
+import AdPlacement from '../lib/ad';
+import {BannerAd, BannerAdSize, TestIds} from '@react-native-firebase/admob';
 
 const Home = () => {
   const store = useStore();
@@ -89,20 +92,21 @@ const Home = () => {
       )}
       {/* Ad */}
       <View style={[sectionStyle.section]}>
-        <View style={sectionStyle.section__head}>
+        {/* <View style={sectionStyle.section__head}>
           <Text adjustsFontSizeToFit style={sectionStyle.section__head_typo}>
-            Ad
           </Text>
+        </View> */}
+        <View style={sectionStyle.section_ad_box}>
+          <BannerAd
+            unitId={AdPlacement.GLOBAL_BANNER_AD}
+            size={BannerAdSize.MEDIUM_RECTANGLE}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
         </View>
-        <View style={sectionStyle.section_ad_box}></View>
       </View>
-      {/* <BannerView
-        placementId="1595683040620066_1596870253834678"
-        type="large"
-        onPress={() => console.log('click')}
-        onLoad={() => console.log('loaded')}
-        onError={(err) => console.log('error')}
-      /> */}
+
       {/* All List */}
       <View style={sectionStyle.section}>
         <View style={sectionStyle.section__head}>
@@ -165,7 +169,12 @@ const sectionStyle = StyleSheet.create({
     paddingVertical: 20,
   },
   section_ad_box: {
+    marginTop: 10,
     minHeight: 250,
+    // borderRadius: 10,
+    // backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

@@ -4,6 +4,7 @@ import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
 import {useAd} from '../store/AdStore';
+import StripeNativeAd from '../adComponent/StripeNativeAd';
 
 const RecentlyVisitScene = () => {
   const store = useStore();
@@ -14,7 +15,6 @@ const RecentlyVisitScene = () => {
       {/* All List */}
       <View style={sectionStyle.section}>
         <Text style={sectionStyle.section__head_typo}>Recently Visited</Text>
-
         <View style={sectionStyle.section_vertical_item_list}>
           {recentlyVisitedList.map((it, idx) => (
             <StripeItem

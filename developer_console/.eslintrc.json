@@ -1,0 +1,59 @@
+// .eslintrc.json
+{
+  "env": {
+    "browser": true,
+    "node": true, // 에러 방지 위해 browswer, node 둘다 true
+    "es2020": true //2020-12-03 기준 2021은 eslint가 안되는 오류가 있다
+  },
+  "extends": [
+    "eslint:recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 11, //es2020
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "plugins": ["react", "react-hooks"],
+
+  "rules": {
+    /* JSX */
+    "react/prop-types": [
+      1,
+      {
+        "ignore": ["className", "children", "location", "params", "location*"]
+      }
+    ],
+    "no-param-reassign": [
+      0,
+      {
+        "props": false
+      }
+    ],
+    "prefer-rest-params": 1,
+    "arrow-body-style": 0,
+    "prefer-template": 0,
+    "react/prefer-stateless-function": 1,
+    "react/jsx-no-bind": [
+      0,
+      {
+        "ignoreRefs": false,
+        "allowArrowFunctions": false,
+        "allowBind": true
+      }
+    ],
+    "no-use-before-define": "off",
+    "no-unused-vars": "warn",
+    "linebreak-style": "off",
+    "object-curly-spacing": "off",
+    "object-curly-newline": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off"
+  }
+}

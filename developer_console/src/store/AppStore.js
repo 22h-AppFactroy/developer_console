@@ -127,7 +127,11 @@ export const AppProvider = ({children}) => {
     getStarredList,
     getRecentlyVisitedList,
   };
-  return <AppContext.Provider value={store}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={store}>
+      {appData.length > 1 && children}
+    </AppContext.Provider>
+  );
 };
 
 export const useStore = () => {

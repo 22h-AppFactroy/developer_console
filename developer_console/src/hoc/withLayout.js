@@ -1,21 +1,21 @@
 import React, {Component, useState, useEffect} from 'react';
-import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {SafeAreaView, View, ScrollView, StyleSheet} from 'react-native';
 import {BannerAd, BannerAdSize, TestIds} from '@react-native-firebase/admob';
 import AdPlacement from '../lib/ad';
 
 const withLayout = (WrappedComponent) => {
   return (props) => {
-    const [isBannerReady, setIsBannerReady] = useState(false);
-
     return (
       <SafeAreaView style={style.container}>
-        <BannerAd
-          unitId={AdPlacement.GLOBAL_BANNER_AD}
-          size={BannerAdSize.SMART_BANNER}
-          requestOptions={{
-            requestNonPersonalizedAdsOnly: true,
-          }}
-        />
+        <View style={{width: '100%', zIndex: 10, height: 40}}>
+          <BannerAd
+            unitId={AdPlacement.GLOBAL_BANNER_AD}
+            size={BannerAdSize.ADAPTIVE_BANNER}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        </View>
         <ScrollView
           style={style.scroll_container}
           showsVerticalScrollIndicator={false}
@@ -34,7 +34,7 @@ const style = StyleSheet.create({
   },
   scroll_container: {
     flex: 1,
-    paddingTop: 30,
+    marginTop: 15,
     paddingHorizontal: '5%',
     paddingBottom: 100,
   },
