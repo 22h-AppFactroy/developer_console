@@ -12,6 +12,9 @@ import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
 import AddItemModal from '../component/AddItemModal';
 
+import NativeStripeAd from '../adComponent/NativeStripeAd';
+import AdPlacement from '../lib/ad';
+
 const SectionHead = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -67,7 +70,7 @@ const SearchScene = () => {
             placeholder={'search...'}
           />
         </View>
-
+        <NativeStripeAd adUnitId={AdPlacement.SEARCH_NATIVE_AD} />
         <View style={sectionStyle.section_vertical_item_list}>
           {searchResultList.map((it, idx) => (
             <StripeItem

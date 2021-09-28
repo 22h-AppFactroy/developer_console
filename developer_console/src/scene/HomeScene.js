@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   Text,
   View,
@@ -12,18 +11,14 @@ import BoxItem from '../component/BoxItem';
 import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
-import {useAd} from '../store/AdStore';
-import AdView from '../adComponent/AdView';
+import NativeStripeAd from '../adComponent/NativeStripeAd';
 import AdPlacement from '../lib/ad';
-import {BannerAd, BannerAdSize, TestIds} from '@react-native-firebase/admob';
 
 const Home = () => {
   const store = useStore();
 
   const recentlyVisitedList = store.getRecentlyVisitedList().slice(0, 5);
   const starredList = store.getStarredList().slice(0, 5);
-
-  const {homeAdManager} = useAd();
 
   return (
     <>
@@ -90,22 +85,6 @@ const Home = () => {
           </ScrollView>
         </View>
       )}
-      {/* Ad */}
-      <View style={[sectionStyle.section]}>
-        {/* <View style={sectionStyle.section__head}>
-          <Text adjustsFontSizeToFit style={sectionStyle.section__head_typo}>
-          </Text>
-        </View> */}
-        <View style={sectionStyle.section_ad_box}>
-          <BannerAd
-            unitId={AdPlacement.GLOBAL_BANNER_AD}
-            size={BannerAdSize.MEDIUM_RECTANGLE}
-            requestOptions={{
-              requestNonPersonalizedAdsOnly: true,
-            }}
-          />
-        </View>
-      </View>
 
       {/* All List */}
       <View style={sectionStyle.section}>
@@ -127,7 +106,16 @@ const Home = () => {
         </View>
 
         <View style={sectionStyle.section_vertical_item_list}>
-          {store.appData.map((it, idx) => (
+          {store.appData.slice(0, 2).map((it, idx) => (
+            <StripeItem
+              key={`recentvisit:${idx}`}
+              {...it}
+              extraStyle={{marginBottom: 20}}
+            />
+          ))}
+          <NativeStripeAd adUnitId={AdPlacement.HOME_NATIVE_AD} />
+
+          {store.appData.slice(2).map((it, idx) => (
             <StripeItem
               key={`recentvisit:${idx}`}
               {...it}
@@ -171,8 +159,6 @@ const sectionStyle = StyleSheet.create({
   section_ad_box: {
     marginTop: 10,
     minHeight: 250,
-    // borderRadius: 10,
-    // backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
   },

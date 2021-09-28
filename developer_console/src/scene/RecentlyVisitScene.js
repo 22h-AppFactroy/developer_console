@@ -3,20 +3,29 @@ import {StyleSheet, Text, View} from 'react-native';
 import StripeItem from '../component/StripeItem';
 import {useStore} from '../store/AppStore';
 import withLayout from './../hoc/withLayout';
-import {useAd} from '../store/AdStore';
-import StripeNativeAd from '../adComponent/StripeNativeAd';
+import NativeStripeAd from '../adComponent/NativeStripeAd';
+import {getMin, getRandom} from './../lib/util.js';
+import AdPlacement from '../lib/ad';
 
 const RecentlyVisitScene = () => {
   const store = useStore();
   const recentlyVisitedList = store.getRecentlyVisitedList();
-
+  const randomNumber = getRandom(2, getMin(5, recentlyVisitedList.length - 1));
   return (
     <>
       {/* All List */}
       <View style={sectionStyle.section}>
         <Text style={sectionStyle.section__head_typo}>Recently Visited</Text>
         <View style={sectionStyle.section_vertical_item_list}>
-          {recentlyVisitedList.map((it, idx) => (
+          {recentlyVisitedList.slice(0, randomNumber).map((it, idx) => (
+            <StripeItem
+              key={`recentvisit:${idx}`}
+              {...it}
+              extraStyle={{marginBottom: 20}}
+            />
+          ))}
+          <NativeStripeAd adUnitId={AdPlacement.RECENTLY_NATIVE_AD} />
+          {recentlyVisitedList.slice(randomNumber).map((it, idx) => (
             <StripeItem
               key={`recentvisit:${idx}`}
               {...it}

@@ -173,7 +173,9 @@ const AddItemModal = (props) => {
   };
 
   return (
-    <Modal isVisible={props.isModalVisible}>
+    <Modal
+      onBackButtonPress={() => props.setIsModalVisible(false)}
+      isVisible={props.isModalVisible}>
       <View style={style.container}>
         <View style={style.head}>
           <Text style={style.head__typo}>ADD NEW ITEM</Text>
