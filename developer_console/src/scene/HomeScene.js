@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   StyleSheet,
   ScrollView,
@@ -14,11 +14,17 @@ import withLayout from './../hoc/withLayout';
 import NativeStripeAd from '../adComponent/NativeStripeAd';
 import AdPlacement from '../lib/ad';
 
+import MediationTestSuite from 'react-native-mediation-test-suite';
+
 const Home = () => {
   const store = useStore();
 
   const recentlyVisitedList = store.getRecentlyVisitedList().slice(0, 5);
   const starredList = store.getStarredList().slice(0, 5);
+
+  useEffect(() => {
+    // MediationTestSuite.launch();
+  }, []);
 
   return (
     <>

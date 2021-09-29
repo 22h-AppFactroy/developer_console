@@ -191,12 +191,24 @@ android {
 }
 
 dependencies {
+
+//    MOPUB
+    implementation('com.mopub:mopub-sdk:+@aar') {
+        transitive = true
+    }
+    implementation 'com.google.ads.mediation:mopub:5.18.0.0'
+
+//    FACEBOOK
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+
+    implementation ('com.google.android.ads:mediation-test-suite:1.2.1') {
+        exclude group: "com.google.android.gms"
+    }
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
     implementation 'com.android.support:multidex:1.0.3' // << 추가
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 

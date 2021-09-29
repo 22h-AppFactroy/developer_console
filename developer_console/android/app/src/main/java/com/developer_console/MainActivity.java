@@ -2,7 +2,10 @@ package com.developer_console;
 import android.os.Bundle; // here
 
 import com.facebook.react.ReactActivity;
+
 import org.devio.rn.splashscreen.SplashScreen; // here
+import com.google.android.ads.mediationtestsuite.MediationTestSuite;
+
 
 public class MainActivity extends ReactActivity {
 
@@ -14,6 +17,12 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
     SplashScreen.show(this);
     super.onCreate(savedInstanceState);
+
+    String appId = "ca-app-pub-8356725717508400~8771533277"; // APP ID FROM ADMOB
+    MediationTestSuite.launch(MainActivity.this, appId);
+
+
+
   }
   @Override
   protected String getMainComponentName() {
